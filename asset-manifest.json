@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/react-Web-CV/static/css/main.3643e4bf.css",
-    "main.js": "/react-Web-CV/static/js/main.fab505d1.js",
-    "static/js/213.5eb53881.chunk.js": "/react-Web-CV/static/js/213.5eb53881.chunk.js",
-    "static/js/732.6d812ff7.chunk.js": "/react-Web-CV/static/js/732.6d812ff7.chunk.js",
-    "static/js/453.e224ee06.chunk.js": "/react-Web-CV/static/js/453.e224ee06.chunk.js",
-    "index.html": "/react-Web-CV/index.html",
-    "main.3643e4bf.css.map": "/react-Web-CV/static/css/main.3643e4bf.css.map",
-    "main.fab505d1.js.map": "/react-Web-CV/static/js/main.fab505d1.js.map",
-    "213.5eb53881.chunk.js.map": "/react-Web-CV/static/js/213.5eb53881.chunk.js.map",
-    "732.6d812ff7.chunk.js.map": "/react-Web-CV/static/js/732.6d812ff7.chunk.js.map",
-    "453.e224ee06.chunk.js.map": "/react-Web-CV/static/js/453.e224ee06.chunk.js.map"
+    "main.css": "/Web-CV/static/css/main.3643e4bf.css",
+    "main.js": "/Web-CV/static/js/main.ca554f73.js",
+    "static/js/213.5eb53881.chunk.js": "/Web-CV/static/js/213.5eb53881.chunk.js",
+    "static/js/732.6d812ff7.chunk.js": "/Web-CV/static/js/732.6d812ff7.chunk.js",
+    "static/js/453.e224ee06.chunk.js": "/Web-CV/static/js/453.e224ee06.chunk.js",
+    "index.html": "/Web-CV/index.html",
+    "main.3643e4bf.css.map": "/Web-CV/static/css/main.3643e4bf.css.map",
+    "main.ca554f73.js.map": "/Web-CV/static/js/main.ca554f73.js.map",
+    "213.5eb53881.chunk.js.map": "/Web-CV/static/js/213.5eb53881.chunk.js.map",
+    "732.6d812ff7.chunk.js.map": "/Web-CV/static/js/732.6d812ff7.chunk.js.map",
+    "453.e224ee06.chunk.js.map": "/Web-CV/static/js/453.e224ee06.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3643e4bf.css",
-    "static/js/main.fab505d1.js"
+    "static/js/main.ca554f73.js"
   ]
 }
