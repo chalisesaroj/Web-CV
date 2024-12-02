@@ -7,19 +7,16 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import PdfGenerator from './components/pdf';
 import './styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CvConfig from './config/cvconfig';
+import ParentForm from './components/Forms/parentForm';
+
 
 function App() {
   return (
     <div className="app">
-        <PdfGenerator />
-      {/* <Header />
-      <main>
-        <About />
-        <Experience />
-        <Education />
-        <Skills />
-        <Contact />
-      </main> */}
+<ParentForm/>
+      
     </div>
   );
 }
