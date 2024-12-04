@@ -15,8 +15,10 @@ function Contact() {
           <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-chalise-9974b2a5/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/saroj-chalise-9974b2a5/</a>
         </li>
         <li>
-          <strong>GitHub:</strong> <a href="https://github.com/chalisesaroj" target="_blank" rel="noopener noreferrer">https://github.com/chalisesaroj</a>
-        </li>
+          <strong>GitHub:</strong> <a href="https://github.com/chalisesaroj" target="_blank" rel="noopener noreferrer">https://github.com/chalisesaroj</a></li>
+        
+          <li>
+          <strong>Web:</strong> <a href="https://chalisesaroj.github.io/Web-CV/" target="_blank" rel="noopener noreferrer">https://chalisesaroj.github.io/Web-CV/</a></li>
       </ul>
     </section>
   );

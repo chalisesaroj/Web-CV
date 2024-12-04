@@ -20,7 +20,7 @@ function Education() {
       <ul>
         {education.map((edu, index) => (
           <li key={index}>
-            <h3>{edu.degree}</h3>
+            <h5>{edu.degree}</h5>
             <p>{edu.institution}</p>
             <p>{edu.duration}</p>
           </li>

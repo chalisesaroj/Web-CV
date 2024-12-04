@@ -1,12 +1,18 @@
+import {  Stack, TextField,Box,Button, IconButton} from "@mui/material";
 import React from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function ExperienceForm({ data, setData }) {
   return (
     <div>
+      <h3>Experience</h3>
       {data.experience.map((exp, expIndex) => (
-        <div key={expIndex} style={{ marginBottom: "20px" }}>
-          <input
-            value={exp.role}
+        <Box key={expIndex} sx={{ marginBottom: 2, borderBottom: 1, paddingBottom: 2 }}>
+  <div key={expIndex} style={{ marginBottom: "20px" }}>
+         <Stack direction="column" spacing={2}>
+         <TextField
+            value={exp.role} label="role"
             placeholder="Enter role"
             onChange={(e) => {
               const newExperience = [...data.experience];
@@ -14,29 +20,29 @@ function ExperienceForm({ data, setData }) {
               setData({ ...data, experience: newExperience });
             }}
           />
-          <input
+          <TextField
             value={exp.company}
-            placeholder="Enter company"
+            placeholder="Enter company" label="Company Name"
             onChange={(e) => {
               const newExperience = [...data.experience];
               newExperience[expIndex].company = e.target.value;
               setData({ ...data, experience: newExperience });
             }}
           />
-          <input
-            value={exp.duration}
-            placeholder="Enter duration"
+          <TextField
+            value={exp.duration} label="Duration of work"
+            placeholder="Enter duration eg: Dec 2022-Sep 2025"
             onChange={(e) => {
               const newExperience = [...data.experience];
               newExperience[expIndex].duration = e.target.value;
               setData({ ...data, experience: newExperience });
             }}
           />
-
+          
           {/* Nested mapping for descriptions */}
           {exp.description.map((desc, descIndex) => (
             <div key={descIndex} style={{ marginLeft: "20px" }}>
-              <input
+              <textarea className="descinputbox"
                 value={desc}
                 placeholder={`Description ${descIndex + 1}`}
                 onChange={(e) => {
@@ -56,7 +62,12 @@ function ExperienceForm({ data, setData }) {
           }}>
             Add Description
           </button>
+         </Stack>
+        
+
         </div>
+        </Box>
+      
       ))}
 
       {/* Button to add a new experience */}

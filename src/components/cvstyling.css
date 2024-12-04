@@ -15,3 +15,18 @@
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
 }
+.custom-bullet {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .custom-bullet::before {
+    content: '\2022';  /* Or use Unicode symbol \2022 */
+    color: black; /* Change color if needed */
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  

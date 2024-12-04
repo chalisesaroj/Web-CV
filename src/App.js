@@ -15,8 +15,8 @@ import ParentForm from './components/Forms/parentForm';
 function App() {
   return (
     <div className="app">
-<ParentForm/>
-      
+{/* <ParentForm/> */}
+      <PdfGenerator/>
     </div>
   );
 }

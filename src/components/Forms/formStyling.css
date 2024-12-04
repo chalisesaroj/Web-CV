@@ -1,0 +1,27 @@
+.nextpreviousbutton{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.aboutUsTextField{
+    width:100%;
+   
+}
+.sampledescription{
+    background-color:cornsilk;
+    margin:4%;
+}
+.subtitle{
+    margin-top: 4%;
+}
+.collectionBox{
+    border:1px solid;
+    height:350px;
+    width: 100%;
+}
+.descinputbox{
+    justify-content: space-around;
+    width:100%;
+    align-items: center;
+    margin:2%;
+}

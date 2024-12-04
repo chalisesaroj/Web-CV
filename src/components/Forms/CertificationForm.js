@@ -1,4 +1,12 @@
+import { Delete } from "@mui/icons-material";
+import { Stack, TextField,Box,Button, IconButton} from "@mui/material";
 import React from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+// certification: [{
+//   certificateTitle: "",
+//   certificateLink: ""
+// }],
 
 function CertificationForm({ data, setData }) {
   // Function to handle input changes for each certification field
@@ -23,43 +31,40 @@ function CertificationForm({ data, setData }) {
   };
 
   return (
-    <div>
+    <Box sx={{ maxWidth: 600, margin: 'auto', padding: 3, boxShadow: 3, borderRadius: 2 }}>
+  <div>
       <h3>Certifications</h3>
-      {/* Ensure at least one empty input is shown if no certifications exist */}
-      {data.certification.length === 0 && (
-        <div>
-          <input
-            type="text"
-            placeholder="Title of the certificate"
-            onChange={(e) => handleInputChange(e, 0, "certificateTitle")}
-          />
-          <input
-            type="text"
-            placeholder="Link to the certificate"
-            onChange={(e) => handleInputChange(e, 0, "certificateLink")}
-          />
-        </div>
-      )}
+     
 
       {data.certification.map((cert, index) => (
         <div key={index}>
-          <input
+            <Box key={index} sx={{ marginBottom: 2, borderBottom: 1, paddingBottom: 2 }}>
+            <Stack direction="column" spacing={5}>
+          <TextField 
             type="text"
+            label="Title"
             placeholder="Title of the certificate"
             value={cert.certificateTitle}
             onChange={(e) => handleInputChange(e, index, "certificateTitle")}
           />
-          <input
+          <TextField
             type="text"
+            label="Link"
             placeholder="Link to the certificate"
             value={cert.certificateLink}
             onChange={(e) => handleInputChange(e, index, "certificateLink")}
           />
-          <button onClick={() => removeCertification(index)}>Remove</button>
+           <IconButton color="error" onClick={() => removeCertification(index)}><DeleteIcon/></IconButton>
+          </Stack>
+         
+            </Box>
+        
         </div>
       ))}
-      <button onClick={addCertification}>Add Certification</button>
+      <Button startIcon={<AddCircleOutlineIcon />} onClick={addCertification}>Add Certification</Button>
     </div>
+    </Box>
+  
   );
 }
 

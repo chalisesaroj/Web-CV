@@ -8,8 +8,13 @@ import EducationForm from "./EducationForm";
 import ContactForm from "./ContactForm";
 import ProfessionalTrainingForm from "./ProfessionalTrainingForm";
 import HeaderForm from "./HeaderForm";
+import './formStyling.css';
+import { Button, Stack } from "@mui/material";
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 function ParentForm() {
     const[index,setIndex]=useState(0);
+    
     const [dataconfig, setDataConfig] = useState({
         header: {
             personname: "",
@@ -88,12 +93,19 @@ function ParentForm() {
         setDataConfig({ ...dataconfig, professionaltraining: d.professionaltraining })
     }} />]
     return (
-        <div>
-      {steps[index]};
+        <div className="nextpreviousbuttons">
+    
+      <Stack direction="column" spacing={3}>
+      {steps[index]}
+      <Stack justifyContent={"space-between"} direction="row">
       {index>=1
-      ?<button onClick={()=>setIndex(index-1)}>Back Page</button>:<p></p>}
-      {index<8
-      ?<button onClick={()=>setIndex(index+1)}>Next  Page</button>:<p></p>}
+      ?<Button startIcon={<ArrowLeftIcon/>}variant="contained" onClick={()=>setIndex(index-1)}>Back Page</Button>:<p></p>}
+      {index<steps.length-2
+      ?<Button  endIcon={<ArrowRightIcon/>} variant="contained" onClick={()=>setIndex(index+1)}>Next  Page</Button>:<p></p>}
+      {index===steps.length-2?<Button  variant="contained" color="success">Submit and see my CV</Button>:<></>}
+      </Stack>
+      </Stack>
         </div>
+      
     )
 } export default ParentForm;

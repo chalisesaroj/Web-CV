@@ -39,7 +39,7 @@ const ProfessionalTraining = () => {
       <ul>
         {trainings.map((training, index) => (
           <li key={index} style={{ marginBottom: '1rem' }}>
-          <a href={training.link}>  {training.title} from the instructor
+          <a href={training.link} style={{textDecoration:"none",color:"inherit"}}>  {training.title} from the instructor
         <strong>{training.instructor}</strong>
           via <strong>{training.platform}</strong>
             --{training.duration}</a>

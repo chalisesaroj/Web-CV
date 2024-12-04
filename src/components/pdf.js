@@ -53,8 +53,9 @@ const PdfGenerator = () => {
       <div ref={pdfRef} style={{ padding: '20px', backgroundColor: '#fff' }}>
         {/* Header Section */}
         <div style={{ display: 'flex', marginBottom: '20px' }}>
-          <div style={{ flex: 2, padding: '10px' }}>
-            <img src="saroj.jpg" className="roundphoto" alt="Profile" />
+          <div style={{ flex: 4, padding: '10px' }}>
+          <img src={`${process.env.PUBLIC_URL}/saroj.jpg`} className="roundphoto" alt="Profile" />
+
           </div>
           <div style={{ flex: 7, padding: '10px' }}>
             <Header />
@@ -66,7 +67,7 @@ const PdfGenerator = () => {
         <div style={{ display: 'flex' }}>
           <div style={{ flex: 2, paddingLeft: '10px' }}>
             <Skills />
-            <Certification />
+            {/* <Certification /> */}
             <Projects />
             <Familiarwith />
           </div>
@@ -76,6 +77,7 @@ const PdfGenerator = () => {
             <Education />
             <ProfessionalTraining />
             <Contact />
+
           </div>
         </div>
       </div>
