@@ -9,7 +9,7 @@ function Experience() {
       duration: 'Sep 2022 - Present',
       description: ['Designed and implemented RESTful APIs for Vehicle Record Management using Spring,Hibernate and MYSQL',
         ' Secured endpoints with Spring Security and developed login/logout and forgot-password ',
-        '  Built a system to generate PDF reports and send automated emails to vehicle owners',
+        'Optimized database queries and ensured high performance, handling large-scale vehicle records efficiently',
         'Developed the interactive front end with UI/UX integrating with the Rest API']
     },
     {
@@ -40,6 +40,7 @@ function Experience() {
             
           ))}
         </ul>
+        <br></br>
       </li>
     ))}
   </ul>

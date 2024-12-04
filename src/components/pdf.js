@@ -25,7 +25,7 @@ const PdfGenerator = () => {
       const pageHeight = 297; // A4 height in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
-      let position = 0;
+      let position = 20;
 
       // Add first page
       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
@@ -35,6 +35,7 @@ const PdfGenerator = () => {
       while (heightLeft > 0) {
         position -= pageHeight;
         pdf.addPage();
+       
         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
@@ -69,10 +70,11 @@ const PdfGenerator = () => {
             <Skills />
             {/* <Certification /> */}
             <Projects />
+          
             <Familiarwith />
           </div>
           <div style={{ flex: 1, paddingRight: '10px' }}></div>
-          <div style={{ flex: 7, paddingRight: '10px' }}>
+          <div style={{ flex: 6, paddingRight: '10px' }}>
             <Experience />
             <Education />
             <ProfessionalTraining />

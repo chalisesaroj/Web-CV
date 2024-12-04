@@ -14,7 +14,7 @@ const project = [{
 function Projects() {
     return (
         <section className="skills">
-            <h2>Projects</h2>
+             <h4 style={{ textAlign: "left", position: "relative", paddingBottom: "10px", borderBottom: "2px solid #000" }}>Projects</h4>
             <ul>
                 {project.map((proj, ind) => (
                     <li key={ind}><a href={proj.projectLink}style={{textDecoration:"none",color:"inherit"}}>{proj.projectName}</a></li>

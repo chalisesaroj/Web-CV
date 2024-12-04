@@ -3,7 +3,7 @@ import React from 'react';
 function Familiarwith() {
   return (
     <section className="skills">
-      <h2>Familiar with</h2>
+       <h4 style={{ textAlign: "left", position: "relative", paddingBottom: "10px", borderBottom: "2px solid #000" }}>Familiar With</h4>
       <ul>
         <li>AWS,Cloud Computing</li>
         <li>Microservices</li>
