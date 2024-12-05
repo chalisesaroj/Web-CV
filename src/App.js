@@ -11,10 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CvConfig from './config/cvconfig';
 import ParentForm from './components/Forms/parentForm';
 
+import { PDFDownloadLink } from '@react-pdf/renderer';
+
 
 function App() {
   return (
     <div className="app">
+      
 <ParentForm/>
       {/* <PdfGenerator/> */}
     </div>

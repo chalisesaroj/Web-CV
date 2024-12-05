@@ -1,32 +1,67 @@
 import React from 'react';
+import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
-function Education() {
-  const education = [
-    {
-      degree: 'M.S. in Mechanical System Design and Engineering',
-      institution: 'IOE Pulchowk Campus,TU',
-      duration: '2017-2019'
-    },
-    {
-      degree: 'B.E. in Mechanical Engineering',
-      institution: 'IOE Pulchowk Campus,TU',
-      duration: 'Jan 2011-Dec 2014'
-    }
-  ];
+// Function to format dates
+function formatDate(dateString) {
+  const date = new Date(dateString); // Convert string to Date object
+  const options = { month: 'short', year: 'numeric' }; // Short month (e.g., "Dec"), numeric year
+  return date.toLocaleString('en-US', options); // Format in "Dec 2012"
+}
+
+// Define styles for React PDF
+const styles = StyleSheet.create({
+  section: {
+    marginBottom: 20,
+  },
+  header: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  educationItem: {
+    marginBottom: 10,
+  },
+  degree: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  details: {
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  duration: {
+    fontSize: 12,
+    fontStyle: 'italic',
+  },
+});
+
+function Education({ dataEducation }) {
+  const hasValidData = dataEducation.some(edu =>
+    Object.values(edu).some(value => value.trim() !== "")
+  );
+
+  if (!hasValidData) {
+    return null; // Don't render anything if all attributes are empty
+  }
 
   return (
-    <section className="education">
-      <h2>Education</h2>
-      <ul>
-        {education.map((edu, index) => (
-          <li key={index}>
-            <h5>{edu.degree}</h5>
-            <p>{edu.institution}</p>
-            <p>{edu.duration}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <View style={styles.section}>
+      <Text style={styles.header}>Education</Text>
+      {dataEducation.map((edu, index) => (
+        <View style={styles.educationItem} key={index}>
+          <Text style={styles.degree}>
+            {edu.degree} degree in {edu.specialization}
+          </Text>
+          <Text style={styles.details}>
+            {edu.institute}, {edu.university}
+          </Text>
+          <Text style={styles.duration}>
+            {formatDate(edu.startDate)} to {formatDate(edu.endDate)}
+          </Text>
+          <Text style={styles.details}>{edu.duration}</Text>
+        </View>
+      ))}
+    </View>
   );
 }
 

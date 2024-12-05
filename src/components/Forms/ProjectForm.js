@@ -9,7 +9,7 @@ function ProjectForm({ data, setData }) {
       <Typography variant="h4" gutterBottom textAlign="center">Projects</Typography>
       
       {data.projects.map((project, index) => (
-        <Box key={index} sx={{ marginBottom: 2, borderBottom: 1, paddingBottom: 2 }}>
+        <Box key={index} sx={{ marginBottom: 2, borderBottom: 1, paddingBottom: 2 ,width:"100hw"}}>
           <TextField
             fullWidth
             margin="normal"

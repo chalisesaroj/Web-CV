@@ -1,51 +1,67 @@
 import React from 'react';
+import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
+// Define styles for React PDF
+const styles = StyleSheet.create({
+  section: {
+    marginBottom: 20,
+  },
+  header: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textDecoration: 'underline',
+  },
+  experienceItem: {
+    marginBottom: 10,
+  },
+  role: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  duration: {
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  description: {
+    fontSize: 12,
+    marginBottom: 4,
+    marginLeft: 20, // Indent descriptions for better clarity
+  },
+});
 
-function Experience() {
-  const experiences = [
-    {
-      role: 'Software Developer',
-      company: '4G Engineering and Developer Private Limited',
-      duration: 'Sep 2022 - Present',
-      description: ['Designed and implemented RESTful APIs for Vehicle Record Management using Spring,Hibernate and MYSQL',
-        ' Secured endpoints with Spring Security and developed login/logout and forgot-password ',
-        'Optimized database queries and ensured high performance, handling large-scale vehicle records efficiently',
-        'Developed the interactive front end with UI/UX integrating with the Rest API']
-    },
-    {
-      role: 'React Developer',
-      company: 'Voyager IT Private Limited',
-      duration: 'Oct 2023 - Aug 2024- Part Time',
-      description: ['Developed responsive and dynamic UI components using React',
-        ' Integrated front-end applications with RESTful APIs.. ',
-       ]
+function Experience({ dataExperience }) {
+  const hasValidData = dataExperience.some(exp => {
+    // Check if role, company, or duration is non-empty
+    const isValidRole = exp.role && exp.role.trim() !== '';
+    const isValidCompany = exp.company && exp.company.trim() !== '';
+    const isValidDuration = exp.duration && exp.duration.trim() !== '';
 
-    }
-  ];
+    // Check if description array contains at least one non-empty string
+    const isValidDescription = exp.description.some(desc => desc.trim() !== '');
+
+    return isValidRole || isValidCompany || isValidDuration || isValidDescription;
+  });
+
+  if (!hasValidData) {
+    return null; // Don't render anything if all attributes are empty
+  }
 
   return (
-    <section className="experience">
-  <h2>Work Experience</h2>
-  <ul>
-    {experiences.map((exp, index) => (
-      <li key={index}>
-        <h5>{exp.role} - {exp.company}</h5>
-        <p>{exp.duration}</p>
-        <ul> {/* Nested unordered list for descriptions */}
+    <View style={styles.section}>
+      <Text style={styles.header}>Work Experience</Text>
+      {dataExperience.map((exp, index) => (
+        <View style={styles.experienceItem} key={index}>
+          <Text style={styles.role}>{exp.role} - {exp.company}</Text>
+          <Text style={styles.duration}>{exp.duration}</Text>
           {exp.description.map((desc, ind) => (
-            <div>
-                
-                <li key={ind} className='custom-bullet'>{desc}</li>
-            </div>
-            
+            <Text style={styles.description} key={ind}>
+              {desc}
+            </Text>
           ))}
-        </ul>
-        <br></br>
-      </li>
-    ))}
-  </ul>
-</section>
-
+        </View>
+      ))}
+    </View>
   );
 }
 

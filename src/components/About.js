@@ -1,13 +1,24 @@
 import React from 'react';
+import { Text, View, StyleSheet } from '@react-pdf/renderer';
 
+// Define styles for React PDF
+const styles = StyleSheet.create({
+  aboutSection: {
+    marginBottom: 20,
+  },
+  aboutText: {
+    fontSize: 12,
+    lineHeight: 1.5,
+  },
+});
 
-function About() {
+function About({ dataAbout }) {
   return (
-    <section className="about">
+    <section style={styles.aboutSection}>
       {/* <h2>About Me</h2> */}
-      <p>
-      An experienced engineer with hands-on expertise in web development, seeking to further grow in the field of ERP systems and advanced web solutions. Dedicated to contributing my skills and knowledge to build efficient, scalable applications that drive organizational success.
-      </p>
+      <View>
+        <Text style={styles.aboutText}>{dataAbout}</Text>
+      </View>
     </section>
   );
 }

@@ -38,10 +38,11 @@ function SkillsForm({ data, setData }) {
 
       {/* Chips to display the added skills */}
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, marginTop: 2 }}>
-        {data.skills.map((skill, index) => (
+        {data.skills.filter((skill,index)=>skill!=="")
+        .map((skill, index) => (
           <Chip
             key={index}
-            label={skill}
+            label={skill||""}
             onDelete={() => handleDeleteSkill(index)}
             color="primary"
             sx={{ marginBottom: 1 }}

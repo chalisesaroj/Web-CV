@@ -1,19 +1,43 @@
+// Skills.js (React-PDF version)
 import React from 'react';
+import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
-function Skills() {
+// Define styles
+const styles = StyleSheet.create({
+  section: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    borderBottom: '2 solid #000',
+    paddingBottom: 5,
+    marginBottom: 5,
+  },
+  listItem: {
+    fontSize: 12,
+    marginBottom: 3,
+  },
+});
+
+const Skills = ({ dataSkill }) => {
+  // Check if there's valid skill data
+  const hasValidData = dataSkill.some(skill => skill.trim() !== '');
+
+  if (!hasValidData) {
+    return null; // Don't render if all skills are empty
+  }
+
   return (
-    <section className="skills">
-      <h3 style={{ textAlign: "left", position: "relative", paddingBottom: "10px", borderBottom: "2px solid #000" }}>
-        Skills
-      </h3>
-      <ul>
-        <li><strong>Programming Languages:</strong> Java, JavaScript<br/>HTML, CSS, MySQL</li>
-        <li><strong>Frameworks:</strong> React, Spring, Hibernate</li>
-        <li><strong>Concepts:</strong> REST API, Web Application</li>
-        <li>Mechanical Systems Design</li>
-      </ul>
-    </section>
+    <View style={styles.section}>
+      <Text style={styles.title}>Skills</Text>
+      {dataSkill.map((skill, index) => (
+        <Text key={index} style={styles.listItem}>
+          • {skill}
+        </Text>
+      ))}
+    </View>
   );
-}
+};
 
 export default Skills;

@@ -1,24 +1,49 @@
 import React from 'react';
 
-function Contact() {
+function Contact({ dataContact }) {
+  // Check if any field in dataContact has valid (non-empty) data
+  const isValidEmail = dataContact.email && dataContact.email.trim() !== "";
+  const isValidPhone = dataContact.phone && dataContact.phone.trim() !== "";
+  const isValidLinkedIn = dataContact.linkedin && dataContact.linkedin.trim() !== "";
+  const isValidGitHub = dataContact.github && dataContact.github.trim() !== "";
+
+  // Return null if all fields are empty
+  if (!(isValidEmail || isValidPhone || isValidLinkedIn || isValidGitHub)) {
+    return null;
+  }
+
   return (
     <section className="contact">
       <h2>Contact</h2>
       <ul>
-        <li>
-          <strong>Email:</strong> <a href="mailto:chalisesaroj639@gmail.com">chalisesaroj639@gmail.com</a>
-        </li>
-        <li>
-          <strong>Phone:</strong> <a href="tel:+977-9846285132">+977-9846285132</a>
-        </li>
-        <li>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saroj-chalise-9974b2a5/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/saroj-chalise-9974b2a5/</a>
-        </li>
-        <li>
-          <strong>GitHub:</strong> <a href="https://github.com/chalisesaroj" target="_blank" rel="noopener noreferrer">https://github.com/chalisesaroj</a></li>
-        
+        {isValidEmail && (
           <li>
-          <strong>Web:</strong> <a href="https://chalisesaroj.github.io/Web-CV/" target="_blank" rel="noopener noreferrer">https://chalisesaroj.github.io/Web-CV/</a></li>
+            <strong>Email:</strong>{" "}
+            <a href={`mailto:${dataContact.email}`}>{dataContact.email}</a>
+          </li>
+        )}
+        {isValidPhone && (
+          <li>
+            <strong>Phone:</strong>{" "}
+            <a href={`tel:${dataContact.phone}`}>{dataContact.phone}</a>
+          </li>
+        )}
+        {isValidLinkedIn && (
+          <li>
+            <strong>LinkedIn:</strong>{" "}
+            <a href={dataContact.linkedin} target="_blank" rel="noopener noreferrer">
+              {dataContact.linkedin}
+            </a>
+          </li>
+        )}
+        {isValidGitHub && (
+          <li>
+            <strong>GitHub:</strong>{" "}
+            <a href={dataContact.github} target="_blank" rel="noopener noreferrer">
+              {dataContact.github}
+            </a>
+          </li>
+        )}
       </ul>
     </section>
   );
