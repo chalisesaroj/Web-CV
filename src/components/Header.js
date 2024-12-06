@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from '@react-pdf/renderer';
+import { blue } from '@mui/material/colors';
 
 // Define styles
 const styles = StyleSheet.create({
@@ -8,7 +9,8 @@ const styles = StyleSheet.create({
   },
   personName: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: 3,
+    color:"blue"
   },
   title: {
     fontSize: 16,
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
 
 const Header = ({ dataHeader }) => (
   <View style={styles.header}>
-    <Text style={styles.personName}>{dataHeader.personname || "Not found"}</Text>
+    <Text style={styles.personName}>{dataHeader.personname }</Text>
     <Text style={styles.title}>{dataHeader.title}</Text>
   </View>
 );

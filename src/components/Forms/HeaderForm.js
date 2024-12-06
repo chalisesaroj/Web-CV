@@ -1,9 +1,11 @@
-import React from "react";
+import {React ,useState} from "react";
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-function HeaderForm({ data, setData }) {
+function HeaderForm({ data, setData}) {
+
+
   const handleChange = (e, field) => {
     const newHeader = { ...data.header };
     newHeader[field] = e.target.value;
@@ -14,6 +16,8 @@ function HeaderForm({ data, setData }) {
     <Box sx={{ padding: 3, maxWidth: 600, margin: 'auto', boxShadow: 3, borderRadius: 2 }}>
       <Typography variant="h5" gutterBottom>Your Basic Details</Typography>
       <Box display="flex" flexDirection="column" gap={2}>
+        
+        
         <TextField
           variant="outlined"
           label="Name"

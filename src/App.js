@@ -16,10 +16,8 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 
 function App() {
   return (
-    <div className="app">
-      
-<ParentForm/>
-      {/* <PdfGenerator/> */}
+    <div className='app'>
+      <ParentForm />
     </div>
   );
 }

@@ -9,6 +9,8 @@ import Projects from './Project';
 import Contact from './Contact';
 import Familiarwith from './familiarwith';
 import ProfessionalTraining from './ProfessionalTraining';
+import CertificationForm from './Forms/CertificationForm';
+import Certification from './certification';
 
 // Define styles for React PDF
 const styles = StyleSheet.create({
@@ -27,12 +29,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const PdfGenerator = ({ data }) => (
+const PdfGenerator = ({ photo,data }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={{ flexDirection: 'row', marginBottom: 20 }}>
         {/* Profile Image */}
-        <Image src={`${process.env.PUBLIC_URL}/saroj.jpg`} style={styles.profileImage} />
+       {photo&& <Image src={photo} style={styles.profileImage} />}
         {/* Header and About */}
         <View style={{ flex: 1, marginLeft: 20 }}>
           <Header dataHeader={data.header} />
@@ -46,7 +48,8 @@ const PdfGenerator = ({ data }) => (
         <View style={{ flex: 2, marginRight: 10 }}>
           <Skills dataSkill={data.skills} />
           <Projects dataProject={data.projects} />
-          <Familiarwith />
+          {/* <Certification dataCertification={data.certification}/> */}
+          <Familiarwith dataFamiliarWith={data.familiarwith} />
         </View>
 <View style={{flex:1}}></View>
         {/* Right Column */}

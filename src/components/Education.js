@@ -15,8 +15,12 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontWeight: 'bolder',
+    marginBottom: 10, 
+    borderBottomWidth: 1,          
+    borderBottomColor: 'black',    
+    paddingBottom: 4,       
+
   },
   educationItem: {
     marginBottom: 10,

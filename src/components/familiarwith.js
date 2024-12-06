@@ -1,16 +1,39 @@
 import React from 'react';
+import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
-function Familiarwith() {
+// Define styles for React PDF components
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    borderBottomWidth: 2,
+    borderBottomColor: '#000',
+    paddingBottom: 5,
+    textAlign: 'left',
+  },
+  listItem: {
+    fontSize: 12,
+    marginBottom: 3,
+    marginLeft: 10, // Indentation for list
+  },
+});
+
+function Familiarwith({ dataFamiliarWith }) {
   return (
-    <section className="skills">
-       <h4 style={{ textAlign: "left", position: "relative", paddingBottom: "10px", borderBottom: "2px solid #000" }}>Familiar With</h4>
-      <ul>
-        <li>AWS,Cloud Computing</li>
-        <li>Microservices</li>
-        <li>Design Pattern</li>
-        <li>Docker,CI/CD</li>
-      </ul>
-    </section>
+    <View style={styles.container}>
+      <Text style={styles.title}>Familiar With</Text>
+      <View>
+        {dataFamiliarWith.map((familiarwith, index) => (
+          <Text key={index} style={styles.listItem}>
+            • {familiarwith}  {/* Add bullet points manually */}
+          </Text>
+        ))}
+      </View>
+    </View>
   );
 }
 

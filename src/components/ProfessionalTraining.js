@@ -1,9 +1,30 @@
 import React from 'react';
-import './cvstyling.css';
+import { Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 
+// Define styles for React PDF
+const styles = StyleSheet.create({
+  section: {
+    marginBottom: 20,
+  },
+  header: {
+    fontSize: 18,
+    fontWeight: 'bolder',
+    marginBottom: 10, 
+    borderBottomWidth: 1,          
+    borderBottomColor: 'black',    
+    paddingBottom: 4,       
 
+  },
+  listItem: {
+    fontSize: 12,
+    marginBottom: 8,
+  },
+  strong: {
+    fontWeight: 'bold',
+  },
+});
 
-const ProfessionalTraining = ({dataProfessionalTraining}) => {
+const ProfessionalTraining = ({ dataProfessionalTraining }) => {
   function isValidProfessionalTraining(trainingArray) {
     return trainingArray.some(training => {
       // Check if any value in the object is a non-empty string
@@ -12,34 +33,26 @@ const ProfessionalTraining = ({dataProfessionalTraining}) => {
       );
     });
   }
-  if(!isValidProfessionalTraining(dataProfessionalTraining)){
+
+  if (!isValidProfessionalTraining(dataProfessionalTraining)) {
     return null;
   }
-  
-//   professionaltraining: [
-//     {
-//         title: "",
-//         instructor: "",
-//         platform: "",
-//         duration: "",
-//         link: ""
-//     }
-// ],
 
   return (
-    <section>
-      <h2>Professional Training</h2>
-      <ul>
-        {dataProfessionalTraining.map((training, index) => (
-          <li key={index} style={{ marginBottom: '1rem' }}>
-          <a href={training.link} style={{textDecoration:"none",color:"inherit"}}>  {training.title} from the instructor
-        <strong>{training.instructor}</strong>
-          via <strong>{training.platform}</strong>
-            --{training.duration}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <View style={styles.section}>
+      <Text style={styles.header}>Professional Training</Text>
+      {dataProfessionalTraining.map((training, index) => (
+        <View key={index}>
+          <Text style={styles.listItem}>
+            <Link src={training.link} style={{ textDecoration: 'none', color: 'inherit' }}>
+              {training.title} from the instructor{' '}
+              <Text style={styles.strong}>{training.instructor}</Text> via{' '}
+              <Text style={styles.strong}>{training.platform}</Text> -- {training.duration}
+            </Link>
+          </Text>
+        </View>
+      ))}
+    </View>
   );
 };
 

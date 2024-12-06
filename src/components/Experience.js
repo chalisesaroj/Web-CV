@@ -2,18 +2,24 @@ import React from 'react';
 import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
 // Define styles for React PDF
+
 const styles = StyleSheet.create({
   section: {
     marginBottom: 20,
   },
   header: {
+    fontFamily:"Helvetica",
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textDecoration: 'underline',
+    fontWeight: 'bolder',
+    marginBottom: 10, 
+    borderBottomWidth: 1,          
+    borderBottomColor: 'black',    
+    paddingBottom: 4,       
+
   },
   experienceItem: {
-    marginBottom: 10,
+    marginBottom: 20,
+    fontWeight: 'bolder'
   },
   role: {
     fontSize: 14,
@@ -21,13 +27,15 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 12,
-    marginBottom: 4,
+    marginBottom: 8,
   },
   description: {
+    textAlign:"justify",
     fontSize: 12,
     marginBottom: 4,
     marginLeft: 20, // Indent descriptions for better clarity
   },
+
 });
 
 function Experience({ dataExperience }) {
@@ -56,7 +64,7 @@ function Experience({ dataExperience }) {
           <Text style={styles.duration}>{exp.duration}</Text>
           {exp.description.map((desc, ind) => (
             <Text style={styles.description} key={ind}>
-              {desc}
+               {desc}
             </Text>
           ))}
         </View>
