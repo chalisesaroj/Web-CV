@@ -31,9 +31,10 @@ function CertificationForm({ data, setData }) {
   };
 
   return (
-    <Box sx={{ maxWidth: 600, margin: 'auto', padding: 3, boxShadow: 3, borderRadius: 2 }}>
+   
   <div>
       <h3>Certifications</h3>
+      <i>Example: AWS Certified Cloud Practioner,ASHRAE certified design professional,OMARA certified Migration agent. Skip if not applicable</i>
      
 
       {data.certification.map((cert, index) => (
@@ -63,7 +64,7 @@ function CertificationForm({ data, setData }) {
       ))}
       <Button startIcon={<AddCircleOutlineIcon />} onClick={addCertification}>Add Certification</Button>
     </div>
-    </Box>
+
   
   );
 }

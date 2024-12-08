@@ -3,6 +3,7 @@ import React from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AddIcon from '@mui/icons-material/Add';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function ExperienceForm({ data, setData }) {
   return (
@@ -42,7 +43,8 @@ function ExperienceForm({ data, setData }) {
 
               {/* Nested mapping for descriptions */}
               {exp.description.map((desc, descIndex) => (
-                <div key={descIndex} style={{ marginLeft: "20px" }}>
+                <div  key={descIndex} style={{ display:"flex" }}>
+                 <ArrowForwardIcon/>
                   <TextField  fullWidth className="descinputbox"
                     value={desc}
                     placeholder={`Description ${descIndex + 1}`}

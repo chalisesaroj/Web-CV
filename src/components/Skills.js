@@ -1,4 +1,3 @@
-// Skills.js (React-PDF version)
 import React from 'react';
 import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
@@ -31,11 +30,16 @@ const Skills = ({ dataSkill }) => {
   return (
     <View style={styles.section}>
       <Text style={styles.title}>Skills</Text>
-      {dataSkill.map((skill, index) => (
-        <Text key={index} style={styles.listItem}>
-          • {skill}
-        </Text>
-      ))}
+      {dataSkill.map((skill, index) => {
+        if (skill.trim() !== '') {
+          return (
+            <Text key={index} style={styles.listItem}>
+              • {skill}
+            </Text>
+          );
+        }
+       
+      })}
     </View>
   );
 };

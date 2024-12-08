@@ -23,15 +23,22 @@ const styles = StyleSheet.create({
 });
 
 function Familiarwith({ dataFamiliarWith }) {
+if(dataFamiliarWith.every((str) => str.trim() === "")){
+  return null;
+}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Familiar With</Text>
       <View>
-        {dataFamiliarWith.map((familiarwith, index) => (
-          <Text key={index} style={styles.listItem}>
-            • {familiarwith}  {/* Add bullet points manually */}
-          </Text>
-        ))}
+        {dataFamiliarWith.map((familiarwith, index) => {
+          if (familiarwith.trim() !== "") {
+            return (
+              <Text key={index} style={styles.listItem}>
+                • {familiarwith} 
+              </Text>
+            )
+          }
+        })}
       </View>
     </View>
   );

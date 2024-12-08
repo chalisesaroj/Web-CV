@@ -16,6 +16,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import PdfGenerator from "../pdf";
 
 import { PDFDownloadLink, Document, Page, View, Text, StyleSheet, Image, PDFViewer } from '@react-pdf/renderer';
+import FamiliarWithForm from "./familiarWithForm";
 function ParentForm() {
     const [index, setIndex] = useState(0);
     const buttons = [
@@ -27,7 +28,8 @@ function ParentForm() {
         <Button variant={index===5?"contained":"outlined"} key="five" onClick={()=>setIndex(5)}>Skills</Button>,
         <Button variant={index===6?"contained":"outlined"} key="six" onClick={()=>setIndex(6)}>Professional training</Button>,
         <Button variant={index===7?"contained":"outlined"} key="seven" onClick={()=>setIndex(7)}>Projects</Button>,
-        <Button variant={index===8?"contained":"outlined"}key="eight" onClick={()=>setIndex(8)}>Contacts</Button>,
+        <Button variant={index===8?"contained":"outlined"}key="eight" onClick={()=>setIndex(8)}>Familiar with</Button>,
+        <Button variant={index===9?"contained":"outlined"}key="nine" onClick={()=>setIndex(9)}>Contacts</Button>
     ];
 
     const [photo, setPhoto] = useState(null);
@@ -189,9 +191,9 @@ function ParentForm() {
             skills: ["Java , Spring", "JavaScript, React", "HTML,CSS", "Bootstrap,Material UI", "Bootstrap", "MYSQL,Rest API"]
         })
     })
-    useEffect(() => {
-        testing();
-    }, [])
+    // useEffect(() => {
+    //     testing();
+    // }, [])
     const steps = [<HeaderForm data={dataconfig} setData={(d) => {
         setDataConfig({ ...dataconfig, header: d.header })
     }} />,
@@ -222,7 +224,9 @@ function ParentForm() {
         setDataConfig({ ...dataconfig, projects: d.projects })
     }} />,
 
-
+    <FamiliarWithForm data={dataconfig} setData={(d) => {
+        setDataConfig({ ...dataconfig, familiarwith: d.familiarwith })
+    }} />,
     <ContactForm data={dataconfig} setData={(d) => {
         setDataConfig({ ...dataconfig, contact: d.contact })
     }} />,
