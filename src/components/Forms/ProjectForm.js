@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function ProjectForm({ data, setData }) {
   return (
-    <Box sx={{ maxWidth: 600, margin: 'auto', padding: 3, boxShadow: 3, borderRadius: 2 }}>
+    <div>
       <Typography variant="h4" gutterBottom textAlign="center">Projects</Typography>
       
       {data.projects.map((project, index) => (
@@ -69,7 +69,7 @@ function ProjectForm({ data, setData }) {
       >
         Add Project
       </Button>
-    </Box>
+    </div>
   );
 }
 

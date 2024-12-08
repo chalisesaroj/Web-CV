@@ -7,7 +7,7 @@ function AboutForm({ data, setData }) {
     return (
         <div>
             <h3>How would you like to describe yourself?</h3>
-            <TextField multiline rows={5}className="aboutUsTextField" label="describe yourself" type="text" value={data.aboutus} placeholder="How would you like to describe yourself?" onChange={(e) => {
+            <TextField  fullWidth multiline rows={5}className="aboutUsTextField" label="describe yourself" type="text" value={data.aboutus} placeholder="How would you like to describe yourself?" onChange={(e) => {
             setData({ ...data, aboutus: e.target.value })
         }}></TextField>
         <Typography variant="subtitle2" classname="subtitle2">

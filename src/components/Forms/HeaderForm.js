@@ -13,7 +13,7 @@ function HeaderForm({ data, setData}) {
   };
 
   return (
-    <Box sx={{ padding: 3, maxWidth: 600, margin: 'auto', boxShadow: 3, borderRadius: 2 }}>
+    <div>
       <Typography variant="h5" gutterBottom>Your Basic Details</Typography>
       <Box display="flex" flexDirection="column" gap={2}>
         
@@ -38,7 +38,7 @@ function HeaderForm({ data, setData}) {
           fullWidth
         />
       </Box>
-    </Box>
+    </div>
   );
 }
 

@@ -1,7 +1,4 @@
-.App {
-  text-align: center;
-  width:300%;
-}
+
 
 /* .App-logo {
   height: 40vmin;
@@ -13,6 +10,14 @@
     animation: App-logo-spin infinite 20s linear;
   }
 } */
+ .mainHeader{
+background-color: #4169E1;
+color:white;
+margin:3%;
+padding:1%;
+text-align: center;
+ }
+
 .roundphoto{
   height: 200px;
   width:200px;

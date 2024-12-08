@@ -1,32 +1,65 @@
-.nextpreviousbutton{
-    display:flex;
+.nextpreviousbutton {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.aboutUsTextField{
-    width:100%;
-   
+
+
+.button-group {
+    flex: 3;
 }
-.CVContainer{
-    width:150%;
-    padding: 5%;
+
+.middle-content {
+    border-style: ridge;
+    flex: 12;
+    padding: 10px;
+    margin: 10px;
 
 }
-.sampledescription{
-    background-color:cornsilk;
-    margin:4%;
+
+.CVContainer {
+    margin: 0;
+    padding: 0;
+
+
+
 }
-.subtitle{
+
+.left-pdf-view {
+    flex: 5;
+}
+
+.sampledescription {
+    background-color: cornsilk;
+    margin: 4%;
+}
+
+.three-column-container {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 90px;
+    width: 100%;
+
+}
+.webCVHeader{
+   background-color: steelblue;
+   color:white;
+}
+
+.subtitle {
     margin-top: 4%;
 }
-.collectionBox{
-    border:1px solid;
-    height:350px;
+
+.collectionBox {
+    border: 1px solid;
+    height: 350px;
     width: 100%;
 }
-.descinputbox{
+
+.descinputbox {
     justify-content: space-around;
-    width:100%;
+    width: 100%;
     align-items: center;
-    margin:2%;
+    margin: 2%;
 }

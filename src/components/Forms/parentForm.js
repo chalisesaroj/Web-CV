@@ -12,11 +12,24 @@ import './formStyling.css';
 import { Button, InputLabel, Stack } from "@mui/material";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import PdfGenerator from "../pdf";
 
 import { PDFDownloadLink, Document, Page, View, Text, StyleSheet, Image, PDFViewer } from '@react-pdf/renderer';
 function ParentForm() {
     const [index, setIndex] = useState(0);
+    const buttons = [
+        <Button variant={index===0?"contained":"outlined"} key="zero" onClick={()=>setIndex(0)}>Basic Details</Button>,
+        <Button variant={index===1?"contained":"outlined"}key="one" onClick={()=>setIndex(1)}>Describe yourself</Button>,
+        <Button variant={index===2?"contained":"outlined"}key="two" onClick={()=>setIndex(2)}>Experience</Button>,
+        <Button variant={index===3?"contained":"outlined"}key="three" onClick={()=>setIndex(3)}>Education</Button>,
+        <Button variant={index===4?"contained":"outlined"}key="four" onClick={()=>setIndex(4)}>Certifications</Button>,
+        <Button variant={index===5?"contained":"outlined"} key="five" onClick={()=>setIndex(5)}>Skills</Button>,
+        <Button variant={index===6?"contained":"outlined"} key="six" onClick={()=>setIndex(6)}>Professional training</Button>,
+        <Button variant={index===7?"contained":"outlined"} key="seven" onClick={()=>setIndex(7)}>Projects</Button>,
+        <Button variant={index===8?"contained":"outlined"}key="eight" onClick={()=>setIndex(8)}>Contacts</Button>,
+    ];
+
     const [photo, setPhoto] = useState(null);
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
@@ -216,47 +229,54 @@ function ParentForm() {
     ]
     return (
         <div className="CVContainer" >
+    <div className="webCVHeader"> <h1 style={{textAlign:"center"}}>A Web CV Maker Application</h1></div>
+            {index<steps.length?
+            <div className="three-column-container" >
+                {/* left navigationn panel */}
+                <div className="button-group" >
+                    <ButtonGroup orientation="vertical" aria-label="Vertical button group">
+                        {buttons}
+                    </ButtonGroup>
+                </div>
 
-            {CvDisplay ?
-                <div>
-                    <div >
-                        <PDFViewer>
-                            <PdfGenerator photo={photo} data={dataconfig} />
-                        </PDFViewer>
-                    </div>
-                    <PDFDownloadLink document={<PdfGenerator photo={photo} data={dataconfig} />}
+                {/* middle form section */}
+                <div className="middle-content">
+               
+                    {steps[index]}
+                    {index === 0 &&
+                        <div>
+                            <InputLabel htmlFor="photoselect">Select a photo for CV</InputLabel>
+                            <input type="file" id="photoselect" accept="image/*" onChange={handlePhotoChange}></input>
+                        </div>}
+                    {/* Next and previous buttons */}
+                    <Stack justifyContent={"space-between"} direction="row" sx={{ margin: 2 }} >
+                        {index >= 1
+                            && <Button startIcon={<ArrowLeftIcon />} variant="contained" onClick={() => setIndex(index - 1)}>Back Page</Button>}
+                        {index <= steps.length - 1
+                            && <Button endIcon={<ArrowRightIcon />} variant="contained" onClick={() => setIndex(index + 1)}>{index!==steps.length-1?"Next Page":"See and download CV"}</Button>}
+                       
+                    </Stack>
+                </div>
+
+                {/* left pdf view section */}
+                <div className="left-pdf-view">
+                    <PDFViewer style={{ width: '100%', height: '600px', border: '1px solid #ccc' }} >
+                        <PdfGenerator photo={photo} data={dataconfig} />
+                    </PDFViewer>
+                </div>
+            </div>
+            :
+            <div>
+                 <PDFDownloadLink document={<PdfGenerator photo={photo} data={dataconfig} />}
                         fileName={`resume_${dataconfig.header.personname}`}>
                         {({ blob, url, loading, error }) =>
                             loading ? 'Loading document...' : 'Download now!'
                         }
                     </PDFDownloadLink>
-                </div>
-                :
-                <div style={{ display: "flex" }}>
-                    <Stack direction="column" spacing={3} style={{ flex: 7 }}>
-                        {steps[index]}
-                        {index === 0 &&
-                <div>
-                    <InputLabel htmlFor="photoselect">Select a photo for CV</InputLabel>
-                    <input type="file" id="photoselect" accept="image/*" onChange={handlePhotoChange}></input>
-                </div>}
-                        {/* Next and previous buttons */}
-                        <Stack justifyContent={"space-between"} direction="row">
-                            {index >= 1
-                                && <Button startIcon={<ArrowLeftIcon />} variant="contained" onClick={() => setIndex(index - 1)}>Back Page</Button>}
-                            {index < steps.length - 1
-                                && <Button endIcon={<ArrowRightIcon />} variant="contained" onClick={() => setIndex(index + 1)}>Next  Page</Button>}
-                            {index === steps.length - 1 && <Button variant="contained" color="success" onClick={() => setCvDisplay(true)}>Submit and see my CV</Button>}
-                        </Stack>
-                    </Stack>
-                    <div style={{ flex: 1 }}></div>
-                    <div style={{ flex: 3 }}>
-                        <PDFViewer style={{ width: '100%', height: '600px', border: '1px solid #ccc' }} >
-                            <PdfGenerator photo={photo} data={dataconfig} />
+                <PDFViewer style={{height:'100vh',width:'100vw'}}>
+                            <PdfGenerator photo={photo} data={dataconfig} />     
                         </PDFViewer>
-                    </div>
-                </div>
-            }
+                       </div>}
         </div>
 
     )
